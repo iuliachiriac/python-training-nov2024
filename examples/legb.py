@@ -28,8 +28,10 @@ class MyClass:
 
 # sum = 0  # shadowing - not recommended
 
-func(1)
+# print("In legb.py, __name__ =", __name__, __name__ == "__main__")
+if __name__ == "__main__":
+    func(1)
 
-print("-- In global --")
-print("Built-in names:", len, round, str, list, True, None)
-print("Global names:", X, func, MyClass)
+    print("-- In global --")
+    print("Built-in names:", len, round, str, list, True, None)
+    print("Global names:", X, func, MyClass)
