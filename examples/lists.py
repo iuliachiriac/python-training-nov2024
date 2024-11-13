@@ -8,3 +8,6 @@ l = [0, 1, 1, 2, 3, 6, 7, 8, 10, 100]
 
 l.reverse()
 print(l)
+
+comp = [i ** 2 for i in range(10, 20) if i % 3 == 0]
+print(comp)
