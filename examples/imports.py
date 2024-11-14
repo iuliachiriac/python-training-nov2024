@@ -6,10 +6,11 @@ from legb import X, func as legb_func
 # import pypackage.pymodule
 from pypackage import pymodule
 
+
 print(math.sqrt(9))
 # print(legb.X)
 print(X)
-# legb_func(1)
+legb_func(1)
 
 # print(pypackage.pymodule.pyvar)
 # pypackage.pymodule.pyfunc()

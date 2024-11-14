@@ -10,6 +10,9 @@ greet("Jane", "hi")
 # call with keyword arguments:
 greet(greeting="hi", name="Jane")
 
+# call with mix of positional and keyword arguments:
+greet("Anna", greeting="hi")
+
 
 def decrement(nr, step=1):
     if step < 10:

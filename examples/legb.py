@@ -29,6 +29,8 @@ class MyClass:
 # sum = 0  # shadowing - not recommended
 
 # print("In legb.py, __name__ =", __name__, __name__ == "__main__")
+# print("In legb.py, __file__ =", __file__)
+
 if __name__ == "__main__":
     func(1)
 
