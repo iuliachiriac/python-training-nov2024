@@ -4,11 +4,26 @@ from datetime import date
 class Person:
     """Class describing people"""
     count = 0  # class attributes
+    MAX_YEAR = 1900
 
     def __init__(self, name, dob):
         self.name = name  # instance attributes
         self.date_of_birth = dob
         self._increment_count()
+
+    @property
+    def date_of_birth(self):
+        return self._date_of_birth
+
+    @date_of_birth.setter
+    def date_of_birth(self, value):
+        if value.year < self.MAX_YEAR:
+            raise ValueError(f"Invalid date of birth {value}")
+        self._date_of_birth = value
+
+    @property
+    def age(self):
+        return self.years_since(self.date_of_birth)
 
     @classmethod
     def _increment_count(cls):
@@ -27,10 +42,10 @@ class Person:
 
     def __str__(self):
         return f"Person object (name={self.name}, "\
-               f"date_of_birth={self.date_of_birth})"
+               f"date_of_birth={self._date_of_birth})"
 
     def __lt__(self, other):
-        return self.date_of_birth > other.date_of_birth
+        return self._date_of_birth > other.date_of_birth
 
 
 if __name__ == "__main__":
@@ -51,3 +66,16 @@ if __name__ == "__main__":
 
     print(Person.years_since(date(1918, 12, 1)))
     print(p1.years_since(date(1918, 12, 1)))
+
+    print("Get attribute:", p1.name)
+    p1.name = "Jane"  # set attribute
+    print(p1.name)
+    # del p1.name  # del attribute
+    # print(p1.name)
+
+    try:
+        p1.date_of_birth = date(1890, 4, 2)
+    except ValueError as ex:
+        print(ex)
+
+    print(f"{p1.name} is {p1.age} years old")
