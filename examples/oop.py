@@ -1,3 +1,4 @@
+import random
 from datetime import date
 
 
@@ -41,11 +42,28 @@ class Person:
         print(f"{greeting.capitalize()}! I am {self.name}.")
 
     def __str__(self):
-        return f"Person object (name={self.name}, "\
-               f"date_of_birth={self._date_of_birth})"
+        return (f"Person object (name={self.name}, "
+                f"date_of_birth={self._date_of_birth})")
 
     def __lt__(self, other):
         return self._date_of_birth > other.date_of_birth
+
+
+class Student(Person):
+    count = 0
+
+    def __init__(self, name, date_of_birth, university):
+        super().__init__(name, date_of_birth)
+        self.university = university
+
+    def __str__(self):
+        return (f"Student object (name={self.name}, "
+                f"date_of_birth={self.date_of_birth}, "
+                f"university={self.university})")
+
+    def get_grade(self, subject):
+        # Mock db search (for current instance and subject):
+        return random.randint(2, 10)
 
 
 if __name__ == "__main__":
@@ -60,7 +78,7 @@ if __name__ == "__main__":
     p1.greet()
     p2.greet("hello")
 
-    print(str(p1))
+    print(p1)
 
     print(f"{p1.name} is younger than {p2.name}:", p1 < p2)
 
@@ -79,3 +97,10 @@ if __name__ == "__main__":
         print(ex)
 
     print(f"{p1.name} is {p1.age} years old")
+
+    s1 = Student("Jane Smith", date(2003, 12, 13), "MIT")
+    print(f"{s1.name} is {s1.age} years old and studies at {s1.university} "
+          f"and got a {s1.get_grade("Maths")} in Maths.")
+    print(s1)
+
+    print("Person count:", Person.count, "\nStudent count:", Student.count)
