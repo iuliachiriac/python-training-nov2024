@@ -104,3 +104,6 @@ if __name__ == "__main__":
     print(s1)
 
     print("Person count:", Person.count, "\nStudent count:", Student.count)
+
+    print(isinstance(s1, Student), isinstance(s1, Person))
+
