@@ -8,6 +8,9 @@ def grep(text, file):
 
 
 if __name__ == "__main__":
+    output = grep("def", "functions.py")
+    print(output)
+
     with open("legb.py", "r") as f:
         for line in f:
             print(line, end="")

@@ -94,3 +94,6 @@ git stash pop
 
 ## Contact
 Iulia Chiriac <iulia.chiriac.a@gmail.com>
+
+## Feedback Form
+https://forms.gle/EnvugAU8YePbA5vn9
